@@ -1,0 +1,19 @@
+{
+	"name": "vue-crumbs",
+	"main": "dist/vue-crumbs.js",
+	"version": "1.0.0",
+	"description": "a simple and useful breadcrumbs for vue2.js",
+	"homepage": "https://github.com/jypblue/vue-crumbs#readme",
+	"license": "MIT",
+	"keywords": [
+		"breadcrumbs",
+		"vue",
+		"vue2.js"
+	],
+	"ignore": [
+		".*",
+		"build",
+		"example",
+		"package.json"
+	]
+}

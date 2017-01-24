@@ -1,9 +1,12 @@
 /**
- *
+ * 
  * @authors zx.wang (zx.wang1991@gmail.com)
- * @date    2017-01-24 00:35:14
+ * @date    2017-01-24 16:22:31
  * @version $Id$
+ * @describe out import crumbs.vue file
  */
+
+import crumbs from './crumbs.vue';
 
 function plugin(Vue) {
 	if (plugin.installed) {
@@ -13,7 +16,6 @@ function plugin(Vue) {
 	Object.defineProperties(Vue.prototype, {
 		$crumbs: {
 			get() {
-				// 获取路由信息
 				const route = this.$route,
 					router = this.$router,
 					currentpath = route.path;
@@ -22,13 +24,12 @@ function plugin(Vue) {
 					routesArr = [];
 				routesArr.push(route);
 
-				// 递归查找父节点路径，查找对应的路由信息
 				while (parent && parent.length > 0) {
 					let matched = router.match(parent);
 					routesArr.unshift(matched);
 					parent = matched.meta.parent || '';
 				}
-				// 循环组装面包屑url及名称
+
 				for (let i = 0; i < routesArr.length; i++) {
 					let breadcrumbs = routesArr[i].meta.breadcrumb;
 					if (breadcrumbs && breadcrumbs.length > 0) {
@@ -48,15 +49,12 @@ function plugin(Vue) {
 	});
 
 	Vue.component('breadcrumbs', {
-		template: '<div class="breadcrumbs" v-if="$crumbs.length">' +
-			'<ul>' +
-			'<li v-for="(crumb, i) in $crumbs">' +
-			'<router-link v-if="i < $crumbs.length-1" :to="{ path: crumb.url }">{{ crumb.name }}</router-link>' +
-			'<a v-else>{{ crumb.name }}</a>' +
-			'</li>' +
-			'</ul>' +
-			'</div>'
+		template: '<crumbs :crumbs="$crumbs"></crumbs>',
+		components: {
+			crumbs
+		}
 	});
+
 
 }
 
