@@ -74,7 +74,7 @@ $ bower install vue-crumbs
  		meta:{
  			parent: '/',
  			breadcrumb:[{
- 				name: 'bar page' //No url,it get current page url as <router-link> path
+ 				name: 'bar page' //if no url,it will get current page url as <router-link> path
  			}]
  		}
  	
