@@ -23,6 +23,12 @@ $ npm install vue-crumbs --save
 $ bower install vue-crumbs 
 ```
 
+```
+import VueCrumbs from 'vue-crumbs'
+
+Vue.use(VueCrumbs)
+```
+
 ## Example
 ```js
  new VueRouter({
