@@ -60,7 +60,7 @@ const routes = {
       component:admin,
       meta:{
         parent:'/',
-        breadcrumbs:[{
+        breadcrumb:[{
           url: '/admin',
           name: 'admin page'
         }]
