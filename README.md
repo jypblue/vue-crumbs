@@ -135,7 +135,7 @@ App.vue:
 
 ## Contribution
 
-If you find a bug or want to change the code, you can fork it
+Welcome to report issue and fork it
 
 ## License
 
