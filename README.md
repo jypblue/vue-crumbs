@@ -13,86 +13,89 @@ a simple and useful breadcrumbs for Vue2.js
 ## Installation
 
 ### NPM
+
 ```
 $ npm install vue-crumbs --save
 ```
 
 ### Bower
+
 ```
 $ bower install vue-crumbs
 ```
 
 ### How To Use
+
 ```
-main.js:
+
+Import:
 import Vue from 'vue'
 import VueCrumbs from 'vue-crumbs'
 Vue.use(VueCrumbs)
 
-app.vue:
+Component Use:
 <breadcrumbs></breadcrumbs>
 
-routes.js:
+Routes Config:
 just like the Example below
 ```
 
-## Example
+## Example That Use In vue-cli
+
 ```
 routes.js config:
- const routes = {
- 	routes:[{
- 		path:'/',
- 		component:page,
- 		meta:{
- 			breadcrumb:[{
- 				hidden:true, //if hidden is true ,current page breadcrumbs will be hidden
- 				url:'/',
- 				name: 'Home Page'
- 			}]
- 		},
- 		children:[{
- 			path:'admin',
- 			component:admin,
- 			meta:{
- 				parent:'/',
- 				breadcrumbs:[{
- 					url: '/admin',
- 					name: 'admin page'
- 				}]
- 			}
- 		}]
- 	},{
- 		path:'/foo',
- 		component:foo,
- 		meta:{
- 			parent:'/',
- 			breadcrumb:[{
-				url:'/foo',
- 				name: 'foo Page'
- 			}]
- 		}
- 	},{
- 		path:'/foo/detail',
- 		component: detail,
- 		meta:{
- 			parent:'/foo',
- 			breadcrumb:[{
-				url:'/foo/detail',
- 				name: 'detail Page'
- 			}]
-
- 		}
- 	},{
- 		path:'/bar',
- 		component:bar,
- 		meta:{
- 			parent: '/',
- 			breadcrumb:[{
- 				name: 'bar page' //if no url,it will get current page url as <router-link> path
- 			}]
- 		}
-
- 	}]
+const routes = {
+  routes:[{
+    path:'/',
+    component:page,
+    meta:{
+    breadcrumb:[{
+      hidden:true, //if hidden is true ,current page breadcrumbs will be hidden
+      url:'/',
+      name: 'Home Page'
+    }]
+    },
+    children:[{
+      path:'admin',
+      component:admin,
+      meta:{
+        parent:'/',
+        breadcrumbs:[{
+          url: '/admin',
+          name: 'admin page'
+        }]
+      }
+    }]
+  },{
+    path:'/foo',
+    component:foo,
+    meta:{
+      parent:'/',
+      breadcrumb:[{
+        url:'/foo',
+        name: 'foo Page'
+      }]
+    }
+  },{
+    path:'/foo/detail',
+    component: detail,
+    meta:{
+      parent:'/foo',
+      breadcrumb:[{
+        url:'/foo/detail',
+        name: 'detail Page'
+      }]
+    }
+  },{
+    path:'/bar',
+    component:bar,
+    meta:{
+      parent: '/',
+      breadcrumb:[{
+        name: 'bar page' //if no url,it will get current page url as <router-link> path
+      }]
+    }
+  }]
  };
 export default routes;
 
@@ -108,23 +111,23 @@ Vue.use(VueCrumbs)
 const router = new VueRouter(routes)
 
 const vm = new Vue({
-	router,
-	template: '<App/>',
-	components: {
-		App
-	}
+  router,
+  template: '<App/>',
+  components: {
+    App
+  }
 })
 
 App.vue:
 <template>
-	<div id="app">
-	<breadcrumbs></breadcrumbs>
-	</div>
+  <div id="app">
+    <breadcrumbs></breadcrumbs>
+  </div>
 </template>
 <script>
-	export default {
-		name: 'app'
-	}
+  export default {
+    name: 'app'
+  }
 </script>
 <style>
 </style>
