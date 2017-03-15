@@ -7,7 +7,6 @@ a simple and useful breadcrumbs for Vue2.js
 ## Features
 
 - Supports the vue-router 2.x.x
-
 - Supports latest Firefox, Chrome, Safari, Opera and IE9+
 - Compact size 2KB (1KB gzipped)
 
@@ -20,18 +19,27 @@ $ npm install vue-crumbs --save
 
 ### Bower
 ```
-$ bower install vue-crumbs 
+$ bower install vue-crumbs
 ```
 
+### How To Use
 ```
+main.js:
+import Vue from 'vue'
 import VueCrumbs from 'vue-crumbs'
-
 Vue.use(VueCrumbs)
+
+app.vue:
+<breadcrumbs></breadcrumbs>
+
+routes.js:
+just like the Example below
 ```
 
 ## Example
-```js
- new VueRouter({
+```
+routes.js config:
+ const routes = {
  	routes:[{
  		path:'/',
  		component:page,
@@ -69,7 +77,7 @@ Vue.use(VueCrumbs)
  		meta:{
  			parent:'/foo',
  			breadcrumb:[{
-				url:'/foo/detail', 
+				url:'/foo/detail',
  				name: 'detail Page'
  			}]
 
@@ -83,10 +91,43 @@ Vue.use(VueCrumbs)
  				name: 'bar page' //if no url,it will get current page url as <router-link> path
  			}]
  		}
- 	
- 	}]
- })
 
+ 	}]
+ };
+export default routes;
+
+main.js:
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import VueCrumbs from 'vue-crumbs'
+import routes from './routes'
+import App from './App'
+
+Vue.use(VueRouter)
+Vue.use(VueCrumbs)
+const router = new VueRouter(routes)
+
+const vm = new Vue({
+	router,
+	template: '<App/>',
+	components: {
+		App
+	}
+})
+
+App.vue:
+<template>
+	<div id="app">
+	<breadcrumbs></breadcrumbs>
+	</div>
+</template>
+<script>
+	export default {
+		name: 'app'
+	}
+</script>
+<style>
+</style>
 ```
 
 ## Contribution

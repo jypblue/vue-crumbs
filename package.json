@@ -1,6 +1,6 @@
 {
   "name": "vue-crumbs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple and useful breadcrumbs for vue2.js",
   "main": "dist/vue-crumbs.common.js",
   "jsnext:main": "dist/vue-crumbs.es2015.js",
