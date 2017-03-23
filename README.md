@@ -34,7 +34,7 @@ import VueCrumbs from 'vue-crumbs'
 Vue.use(VueCrumbs)
 
 Component Use:
-<breadcrumbs></breadcrumbs>
+<breadcrumb></breadcrumb>
 
 Routes Config:
 just like the Example below
@@ -121,7 +121,7 @@ const vm = new Vue({
 App.vue:
 <template>
   <div id="app">
-    <breadcrumbs></breadcrumbs>
+    <breadcrumb></breadcrumb>
   </div>
 </template>
 <script>
