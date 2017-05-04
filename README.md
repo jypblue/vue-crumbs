@@ -69,10 +69,16 @@ const routes = {
   },{
     path:'/foo',
     component:foo,
+     // if it is a query or param route
+    beforeEnter: (to, from, next) => {
+      to && (to.meta.breadcrumb[0].url = to.fullPath);
+      window.sessionStorage.setItem('foo',to.fullPath);
+      next();
+    },
     meta:{
       parent:'/',
       breadcrumb:[{
-        url:'/foo',
+        url: window.sessionStorage.getItem('foo'),
         name: 'foo Page'
       }]
     }
@@ -82,7 +88,7 @@ const routes = {
     meta:{
       parent:'/foo',
       breadcrumb:[{
-        url:'/foo/detail',
+        url: '/foo/detail',
         name: 'detail Page'
       }]
     }
