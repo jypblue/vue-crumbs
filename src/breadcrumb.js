@@ -21,12 +21,3 @@ export default {
   version: '1.1.0',
   install,
 };
-
-
-}
-
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(plugin);
-}
-
-export default plugin;
