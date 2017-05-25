@@ -19,7 +19,7 @@ const banner =
   " */\n";
 
 rollup.rollup({
-    entry: 'src/index.js',
+    entry: 'src/main.js',
     plugins: [
       babel({
         presets: 'es2015-loose-rollup'
