@@ -20,7 +20,8 @@ function plugin(Vue) {
     props: {
       mode: {
         type: String,
-        default: 'url' },
+        default: 'mix' // name // url
+      },
       rightIcon: {
         type: String,
         default: 'arrow-right'
@@ -130,12 +131,16 @@ function plugin(Vue) {
         }
       },
       changeCrumbs: function () {
-        if (this.mode === 'name') {
-          this.crumbs = this.getNameModeCrumbs();
-        } else if (this.mode === 'url') {
-          this.crumbs = this.getUrlModeCrumbs();
-        } else {
-          this.crumbs = this.getMixModeCrumbs();
+        switch (this.mode) {
+          case 'name':
+            this.crumbs = this.getNameModeCrumbs();
+            break;
+          case 'url':
+            this.crumbs = this.getUrlModeCrumbs();
+            break;
+          default:
+            this.crumbs = this.getMixModeCrumbs();
+            break;
         }
       }
     },

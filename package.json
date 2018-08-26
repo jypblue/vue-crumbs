@@ -1,6 +1,6 @@
 {
   "name": "vue-crumbs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "a simple and useful breadcrumbs for vue2.js",
   "main": "dist/vue-crumbs.common.js",
   "jsnext:main": "dist/vue-crumbs.es2015.js",
@@ -32,6 +32,7 @@
     "jasmine-core": "^2.5.2",
     "replace-in-file": "^2.5.0",
     "rollup": "^0.41.6",
+    "rollup-plugin-alias": "^1.4.0",
     "rollup-plugin-babel": "^2.7.1",
     "uglify-js": "^2.8.15",
     "vue": "^2.2.4",

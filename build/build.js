@@ -9,6 +9,7 @@ const fs = require('fs');
 const rollup = require('rollup');
 const uglify = require('uglify-js');
 const babel = require('rollup-plugin-babel');
+const alias = require('rollup-plugin-alias')
 const package = require('../package.json');
 
 const banner =
@@ -21,6 +22,9 @@ const banner =
 rollup.rollup({
     entry: 'src/main.js',
     plugins: [
+      alias({
+        'vue$': 'vue/dist/vue.esm.js'
+      }),
       babel({
         presets: 'es2015-loose-rollup'
       })
